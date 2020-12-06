@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tv2 = findViewById(R.id.tv2);
+        registerForContextMenu(tv2);
     }
 
     //Metodo que infla el menu de opciones
@@ -49,4 +55,33 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    //Inicia menu de contexto
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_contexto, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.editar:
+                //codigo a ejecutar
+                Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.eliminar:
+                Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
+                break;
+
+            default:
+                Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
 }

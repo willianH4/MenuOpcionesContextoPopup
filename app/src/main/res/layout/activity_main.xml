@@ -33,12 +33,25 @@
                 android:id="@+id/tv2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mostrar menu"
+                android:text="Mostrar menu contexto"
                 android:textColor="?attr/colorAccent"
                 android:fontFamily="sans-serif-black"
                 android:textSize="18sp"
                 android:gravity="center"
                 android:layout_marginTop="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mostrar menu popup"
+                android:textColor="?attr/colorAccent"
+                android:fontFamily="sans-serif-black"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:onClick="menuPopUp"
                 />
 
         </LinearLayout>

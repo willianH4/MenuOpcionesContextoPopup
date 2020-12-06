@@ -8,6 +8,7 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +83,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onContextItemSelected(item);
+    }
+
+    //inicio menu popup
+    public void menuPopUp(View v){
+        TextView textView = findViewById(R.id.tv3);
+        PopupMenu popupMenu = new PopupMenu(this, textView);
+        popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                switch (item.getItemId()){
+                    //acciones
+                    case R.id.nuevo:
+                        //acciones
+                        Toast.makeText(MainActivity.this, "Nuevo", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.update:
+                        //acciones
+                        Toast.makeText(MainActivity.this, "Salir", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    default:
+                        Toast.makeText(MainActivity.this, "Salir", Toast.LENGTH_SHORT).show();
+                }
+
+                return true;
+            }
+        });
+
+        popupMenu.show();
     }
 
 }
